@@ -49,3 +49,14 @@ function validSolution(board) {
     return validationCalcul === true && validationCalculTranspose === true && validationConcatenation === true ? true : false
 }
 
+  //   Solution intelligente
+  function validSolution(board){
+  
+    return board.some(function(a){
+        return a.reduce(function(a,b){return a+b},0) !== 45;
+    }) === true ? false : board.some(function(b,i,arr){
+       
+         return (arr[0][i] + arr[1][i] + arr[2][i] + arr[3][i] + arr[4][i] + arr[5][i] +arr[6][i] + arr[7][i] + arr[8][i]) !== 45 ;
+       
+    }) === true ? false : (board[0][0]+board[0][1]+board[0][2] + board[1][0]+board[1][1]+board[1][2] + board[2][0]+board[2][1]+board[2][2]) === 45 ? true :false ;
+  }
