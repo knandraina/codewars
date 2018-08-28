@@ -85,6 +85,7 @@ function dirReduc(arr){
             return dirs;
           }, []);
       }
+//  ou
 
       function isOppo(dir1,dir2) {
         if (dir1 + dir2 === 'SOUTHNORTH') return true;

@@ -48,3 +48,4 @@ function orderWeight(string) {
     return first - second === 0 ? a.localeCompare(b) : first - second; 
   }).join(' ');
 }
+
