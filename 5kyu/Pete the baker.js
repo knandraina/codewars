@@ -26,3 +26,11 @@ function cakes(recipe, available) {
     var minValue = Math.min(...resultat)
     return Math.floor(minValue)  
   }
+
+  // Solution interessante
+
+  function cakes(recipe, initial){
+    return Math.floor(Object.keys(recipe).reduce(function(min, key){
+       return Math.min(initial[key] / recipe[key] || 0, min); // pour avoir accès 
+    }, Infinity));
+ }
