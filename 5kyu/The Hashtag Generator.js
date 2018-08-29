@@ -21,6 +21,11 @@ function generateHashtag (str) {
      return str === "" || sentence.length >= 140 ? false : hastag+sentence ;
     }
 
+    function generateHashtag (str) {
+        var cap = str.split(' ').map( word => word.charAt(0).toUpperCase() + word.slice(1)).join('')
+        return cap && cap.length <= 139 ? "#" + cap : false
+      }
+
     //Other solution
 
     function generateHashtag (str) {
