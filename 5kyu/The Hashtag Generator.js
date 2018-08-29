@@ -31,3 +31,13 @@ function generateHashtag (str) {
         }).join('');
         return r.length > 140?false:r;
      }
+
+     function generateHashtag (str) {
+        const capitalized = str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+        
+        if (capitalized && capitalized.length <= 139) {
+          return "#" + capitalized;
+        } else {
+          return false;
+        }
+      }
