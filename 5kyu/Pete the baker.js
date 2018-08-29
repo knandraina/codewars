@@ -31,6 +31,7 @@ function cakes(recipe, available) {
 
   function cakes(recipe, initial){
     return Math.floor(Object.keys(recipe).reduce(function(min, key){
-       return Math.min(initial[key] / recipe[key] || 0, min); // pour avoir accès 
+       return Math.min(initial[key] / recipe[key] || 0, min); 
     }, Infinity));
  }
+ //initial : donne key-value; key : donne la key ; initial[key] : donne la value
