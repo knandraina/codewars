@@ -21,8 +21,7 @@ function getPrimes(max) {
             }
         }
     }
-    primes = primes.join('')
-    return primes;
+    return primes.join('');
 }
 
 function solve(a, b) {
