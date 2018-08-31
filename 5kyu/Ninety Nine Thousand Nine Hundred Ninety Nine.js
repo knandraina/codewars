@@ -49,21 +49,57 @@ var sentence ='';
   var data = n
   var sentence = "";
   if (String(n).length === 1) {
+
    return unite(data)
+
   }  else if (String(n).length === 2 && n < 20){
+
     sentence = unite(data)
     return sentence     
+
   } else if (String(n).length === 2 && n >= 20) {
+
     sentence = dozen(data) + ' ' +uniteUnderTen(data)
     return n == 20 || n == 30 || n == 40 || n == 50 || n == 60 || n == 70 || n == 80 || n == 90 ? sentence.replace(/\w+[.!?]?$/, '').replace(/\s+$/, '') : sentence
+
   } else if (String(n).length === 3 && String(n).slice(1) < 20 ) {
   
     var sentence = unite(String(data)[0]) + ' hundred ' + unite(String(data).slice(1))
     var sentenceTwo = n !== 100 ? unite(String(data)[0]) + ' hundred ' + uniteUnderTen(String(data).slice(1)) : (unite(String(data)[0]) + ' hundred ' + uniteUnderTen(String(data).slice(1))).replace(/\w+[.!?]?$/, '').replace(/\s+$/, '')
-        
     return sentence.includes('undefined') ? sentenceTwo : sentence
+
   } else if (String(n).length === 3 && String(n).slice(1) >= 20) {
     return unite(String(data)[0]) + ' hundred ' + dozen(String(data).slice(1)) + ' ' + unite(String(data)[String(data).length-1])
+
+  } else if (String(n).length === 4 && String(n).slice(2) < 20 && String(n)[1] !== '0' ) {
+
+     sentence = unite(String(data)[0]) + ' thousand ' + unite(String(n)[1]) +' hundred '+ unite(String(data).slice(2))
+     
+
+     return sentence.includes('undefined') ? sentence.replace(/\w+[.!?]?$/, '').replace(/\s+$/, '') : sentence
+
+  } else if (String(n).length === 4 && String(n).slice(2) < 20 && String(n)[1] == '0' ){
+
+    sentenceTwo = String(n)[String(n).length - 1] !== '0' ? unite(String(data)[0]) + ' thousand ' + uniteUnderTen(String(data).slice(1)) : unite(String(data)[0]) + ' thousand' + uniteUnderTen(String(data).slice(2)).replace(/\w+[.!?]?$/, '').replace(/\s+$/, '')
+    return sentenceTwo
+
+  } else if ( String(n).length === 4 && String(n).slice(1) >= 20 && String(n)[1] === '0' ) {
+     sentence = unite(String(data)[0]) + ' thousand ' + dozen(String(data).slice(2)) + ' ' + unite(String(data)[String(data).length-1])
+    return String(n)[String(n).length - 1] === '0' ? sentence.replace(/\w+[.!?]?$/, '').replace(/\s+$/, '') : sentence
+
+  } else if ( String(n).length === 4) {
+
+    var sauvegarde = String(n).slice(1) ; var firstData = String(n)[0]
+    sentence = unite(firstData) + ' thousand ' +unite(sauvegarde[0]) + ' hundred ' + dozen(String(sauvegarde).slice(1)) + ' ' + unite(String(sauvegarde)[String(sauvegarde).length-1])
+     return String(n)[String(n).length - 1] === '0' ? sentence.replace(/\w+[.!?]?$/, '').replace(/\s+$/, '') : sentence
+
+  } else if ( String(n).length === 5) {
+    
+      var sauvegarde = String(n).slice(2) ; var firstData = String(n).substring(0,2)
+      console.log(parseInt(String(n).substring(0,2)) < 20 )
+    if (parseInt(String(n).substring(0,2)) < 20 ) {
+         var firstPart =  dozen(firstData) + ' ' +uniteUnderTen(data)
+    }
   }
 }
 
